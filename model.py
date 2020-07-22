@@ -1,18 +1,21 @@
-import os
+# import os
 import requests
-# from zomathon import ZomatoAPI
 
-# API_KEY = os.getenv("API_KEY")
-# zom = ZomatoAPI("3dfbcb0c4a2527d0b5f048383eb3d6a4")
-# print(zom.restaurant(16774318))
-
-# yelp = requests.get("https://api.yelp.com/v3").json()
-# print(yelp)
-
+# term = 'Chinese'
+# location = 'NYC'
+# SEARCH_LIMIT = 1
 url = 'https://api.yelp.com/v3/businesses/search'
 
-headers = {
-        'Authorization': 'Bearer {}'.format(os.getenv("API_KEY")),
+# 'Authorization': 'Bearer {}'.format(API_KEY),
+headers = { 
+    'Authorization': 'Bearer %s' % "Lj3NHxQYfUhoZ6-ZAHHBufMv_dCKumqgLhbtCe_uTyfKZIX7AotRbHZxdz9KFHNz10Aq7IREZvXVgR2LyWElUshB-uh2TXjtc3L_dC1uo6HxoolnHmwxzwjgcG4YX3Yx" 
 }
-response = requests.get(url, headers=headers)
-print(response)
+
+
+def search(term, location, limit):
+    url_params = {
+    'term': term.replace(' ', '+'),
+    'location': location.replace(' ', '+'),
+    'limit': limit
+    }
+    return requests.get(url, headers=headers, params=url_params).json()
