@@ -12,7 +12,7 @@ headers = {
 }
 
 
-def search(term, location, limit):
+def search(term, location, limit=1):
     url_params = {
     'term': term.replace(' ', '+'),
     'location': location.replace(' ', '+'),
