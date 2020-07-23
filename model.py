@@ -1,9 +1,9 @@
+import requests
 import os
 from dotenv import load_dotenv
-import requests
 
 load_dotenv()
-API_KEY = os.getenv("KEY")
+API_KEY = os.getenv("YELP_KEY")
 headers = {
     'Authorization': 'Bearer %s' % API_KEY
 }
