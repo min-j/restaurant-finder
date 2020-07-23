@@ -9,12 +9,12 @@ load_dotenv()
 API_KEY = os.getenv("GOOGLE_KEY")
 
 # -- Routes section --
-@app.route('/')
+
 @app.route('/index')
 def index():
     return render_template("index.html")
 
-
+@app.route('/')
 @app.route('/test', methods= ["GET", "POST"])
 def test():
     if request.method == "GET":
@@ -37,7 +37,8 @@ def test():
             'img3': res['photos'][2],
             'rating': getRating(res['rating']),
             'address': res['location']['display_address'][0] + ", " + res['location']['display_address'][1],
+            'categories': res['categories'],
             'KEY': API_KEY
         }
-        print(params['rating'])
+        print(params['categories'])
         return render_template("test.html", **params)

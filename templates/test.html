@@ -15,9 +15,12 @@
         .card {
             margin: 0 auto;
         }
-        #rating {
-            height: 50%;
-            width: 50%;
+        ul {
+            padding-left: 0;
+            list-style: inside;
+        }
+        #categories {
+            display: inline;
         }
 	</style>
 </head>
@@ -63,10 +66,14 @@
   <div class="card-body">
     <h5 class="card-title">{{name}} {{price}}</h5>
     <img src={{rating}} alt="rating">
+    <ul>
+        {% for item in categories %}
+        <li id="categories">&#183 {{item.title}}</li>
+        {% endfor %}
+    </ul>
     <p class="card-text">{{address}}</p>
     <iframe
-    width="600"
-    height="450"
+
     frameborder="0" style="border:0"
     src="https://www.google.com/maps/embed/v1/place?key={{KEY}}
     &q={{name}}" allowfullscreen>
