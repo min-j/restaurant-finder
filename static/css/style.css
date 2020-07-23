@@ -1,5 +1,7 @@
-body {
-    margin: 10%;
-    margin-top: 30px;
-    font-family: 'IBM Plex Sans', sans-serif;
+.s1 {
+  background-image: url('First Page.png');
+  background-size: cover;
+}
+.center {
+  text-align: center;
 }
