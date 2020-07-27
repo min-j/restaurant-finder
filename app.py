@@ -24,9 +24,8 @@ def test():
     if request.method == "GET":
         return render_template("index.html")
     else:
-        t = request.form["term"]
         loc = request.form["loc"]
-        find = search(t, loc)
+        find = search(loc)
         res = getDetails(find['businesses'][0]['id'])
         print(res)
         params = {

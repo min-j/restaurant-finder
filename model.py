@@ -21,10 +21,9 @@ rating = {
 }
 
 
-def search(term, location, limit=1):
+def search(location, limit=1):
     url = 'https://api.yelp.com/v3/businesses/search'
     url_params = {
-        'term': term.replace(' ', '+'),
         'location': location.replace(' ', '+'),
         'limit': limit
     }
