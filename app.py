@@ -14,6 +14,10 @@ API_KEY = os.getenv("GOOGLE_KEY")
 def index():
     return render_template("index.html")
 
+@app.route('/results')
+def result():
+    return render_template('results.html')
+
 @app.route('/')
 @app.route('/test', methods= ["GET", "POST"])
 def test():
