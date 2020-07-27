@@ -5,3 +5,19 @@
 .center {
   text-align: center;
 }
+.size {
+    min-height: 50%;
+}
+body{
+    background-color: yellow;
+}
+.card {
+    margin: 0 auto;
+}
+#rating {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+}

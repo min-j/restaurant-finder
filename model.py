@@ -1,18 +1,40 @@
 import os
+from dotenv import load_dotenv
 import requests
-# from zomathon import ZomatoAPI
 
-# API_KEY = os.getenv("API_KEY")
-# zom = ZomatoAPI("3dfbcb0c4a2527d0b5f048383eb3d6a4")
-# print(zom.restaurant(16774318))
-
-# yelp = requests.get("https://api.yelp.com/v3").json()
-# print(yelp)
-
-url = 'https://api.yelp.com/v3/businesses/search'
-
+load_dotenv()
+API_KEY = os.getenv("KEY")
 headers = {
-        'Authorization': 'Bearer {}'.format(os.getenv("API_KEY")),
+    'Authorization': 'Bearer %s' % API_KEY
 }
-response = requests.get(url, headers=headers)
-print(response)
+
+rating = {
+    0: "static/images/regular_0@3x.png",
+    1.5: "static/images/regular_1_half@3x.png",
+    2: "static/images/regular_2@3x.png",
+    2.5: "static/images/regular_2_half@3x.png",
+    3: "static/images/regular_3@3x.png",
+    3.5: "static/images/regular_3_half@3x.png",
+    4: "static/images/regular_4@3x.png",
+    4.5: "static/images/regular_4_half@3x.png",
+    5: "static/images/regular_5@3x.png"
+}
+
+
+def search(term, location, limit=1):
+    url = 'https://api.yelp.com/v3/businesses/search'
+    url_params = {
+        'term': term.replace(' ', '+'),
+        'location': location.replace(' ', '+'),
+        'limit': limit
+    }
+    return requests.get(url, headers=headers, params=url_params).json()
+
+
+def getDetails(iden):
+    url = 'https://api.yelp.com/v3/businesses/' + str(iden)
+    return requests.get(url, headers=headers).json()
+
+
+def getRating(num):
+    return rating[num]
