@@ -30,6 +30,9 @@
             background: transparent no-repeat center;
             background-size: cover;
         }
+        .hidden {
+            display: none;
+        }
         #categories {
             display: inline;
         }
@@ -57,18 +60,24 @@
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
                     <!-- Replace this part -->
-                    <!-- <form method="post" action="/result">
+                    <form method="post" action="/result">
                         <label for="term">Enter a term:</label><br>
                         <input type="text" name="term" placeholder="Like Mexican!"><br><br>
                         <label for="loc">Enter a location:</label><br>
                         <input type="text" name="loc" placeholder="Like NYC!"><br><br>
+                        <input class="hidden" type="checkbox" id="term" name="term" value="Chinese">
+                        <label for="term">
+                            <div class="container">
+                                <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link fb" src="https://duyt4h9nfnj50.cloudfront.net/sku/0bc9ca19a02e3bd03f2395c8cf8a3e0c" class="card-img-top" alt="Chinese">
+                                <h5 class = "center"> Chinese </h5>
+                            </div>
+                        </label><br>
                         <input type="hidden" name="formType" value="initial">
                         <input type="submit" value="Submit"/>
-                    </form> -->
-                    <div class = "s1">
-                        <p class="center"> Hungry? We Got You.</p>
+                    </form>
+                    <!-- <div class = "s1">
                         <form class = "center" method="post" action="/index">
-                            <label for="loc">Zip Code</label><br>
+                            <label for="loc">Location</label><br>
                             <input type="text" name="loc"><br>
                             <input type="submit" value="Submit">
                         </form>
@@ -121,7 +130,7 @@
                     <div class-"container">
                         <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">Single toggle</button>
                         <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">Single toggle</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -216,7 +225,9 @@
         flipEffect: {
             slideShadows: false,
         },
+        threshold: 25,
     });
+    <!-- slideChange is more rigid -->
     mySwiper.on('slideNextTransitionEnd', function () {
         console.log('Next');
         document.Yes.submit()
