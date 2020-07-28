@@ -9,15 +9,24 @@
     min-height: 50%;
 }
 body{
-    background-color: yellow;
+    background-color: white;
 }
 .card {
     margin: 0 auto;
 }
 #rating {
-    padding: 0;
+}
+.fb{
+    border-radius: 60%;
+    object-fit: cover;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    padding: 10px;
+    width: 100%;
     display: block;
     margin: 0 auto;
     max-height: 50%;
     max-width: 50%;
+    background-color: white;
 }

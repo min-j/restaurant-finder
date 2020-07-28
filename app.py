@@ -5,7 +5,7 @@ from datetime import datetime
 from model import search, getDetails, getRating
 
 
-# >>>>>>> b547f14b4df326e3a43d570d9244ffb8c04a639c
+# >>>>>>> b547f14b4df32https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f32https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f32https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f32https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f32https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f32https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f32https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f32https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f32https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f32https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f326e3a43d570d9244ffb8c04a639c
 # -- Initialization section --
 app = Flask(__name__)
 
