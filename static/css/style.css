@@ -14,10 +14,8 @@ body{
 .card {
     margin: 0 auto;
 }
-#rating {
-    
-}
-.fb{
+
+.term {
     border-radius: 60%;
     object-fit: cover;
     height: 100%;

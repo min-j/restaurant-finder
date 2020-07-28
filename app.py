@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import model as m
 import os
+from datetime import datetime
 from dotenv import load_dotenv
 
 # -- Initialization section --
@@ -13,7 +14,7 @@ API_KEY = os.getenv("GOOGLE_KEY")
 
 @app.route('/index')
 def index():
-    return render_template("index.html")
+    return render_template("index.html", time=datetime.now())
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -39,7 +40,7 @@ def result():
             'categories': res['categories'],
             'KEY': API_KEY
         }
-        return render_template("result.html", **params)
+        return render_template("result.html", time=datetime.now(), **params)
     else:
         # when the user chooses more than choice throw it into a list
         # and then pop it for viewing
@@ -70,4 +71,4 @@ def result():
             'KEY': API_KEY
         }
         # print(params['categories'])
-        return render_template("result.html", **params)
+        return render_template("result.html", time=datetime.now(), **params)

@@ -3,7 +3,7 @@
 <!-- more than one term -->
 <head>
 	<title>Tinder! But with Restaurants...</title>
-	<link rel="stylesheet" type="css/style.css?" />
+	<link rel="stylesheet" type="text/css" href="static/css/style.css?q={{ time }}" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
@@ -57,14 +57,71 @@
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
                     <!-- Replace this part -->
-                    <form method="post" action="/result">
+                    <!-- <form method="post" action="/result">
                         <label for="term">Enter a term:</label><br>
                         <input type="text" name="term" placeholder="Like Mexican!"><br><br>
                         <label for="loc">Enter a location:</label><br>
                         <input type="text" name="loc" placeholder="Like NYC!"><br><br>
                         <input type="hidden" name="formType" value="initial">
                         <input type="submit" value="Submit"/>
-                    </form>
+                    </form> -->
+                    <div class = "s1">
+                        <p class="center"> Hungry? We Got You.</p>
+                        <form class = "center" method="post" action="/index">
+                            <label for="loc">Zip Code</label><br>
+                            <input type="text" name="loc"><br>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="container">
+                                    <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link fb" src="https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f32" class="card-img-top" alt="Chinese">
+                                    <h5 class = "center"> Chinese </h5>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="container">
+                                    <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link fb" src="https://duyt4h9nfnj50.cloudfront.net/sku/0bc9ca19a02e3bd03f2395c8cf8a3e0c" class="card-img-top" alt="Chinese">
+                                    <h5 class = "center"> Chinese </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="container">
+                                    <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link fb" src="https://duyt4h9nfnj50.cloudfront.net/sku/971d80f9ccce0c8eab98014650ee97eb" class="card-img-top" alt="Chinese">
+                                    <h5 class = "center"> Chinese </h5>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="container">
+                                    <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link fb" src="https://duyt4h9nfnj50.cloudfront.net/sku/a5aa9bbba0172134449b4ad48611d92b" class="card-img-top" alt="Chinese">
+                                    <h5 class = "center"> Chinese </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="container">
+                                    <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link fb" src="https://duyt4h9nfnj50.cloudfront.net/sku/a84dc69cee307fba4f559b1e825d8e9e" class="card-img-top" alt="Chinese">
+                                    <h5 class = "center"> Chinese </h5>
+                                </div>
+                            </div>
+                            <div class="col">
+                            <div class="col">
+                                <div class="container">
+                                    <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link fb" src="https://duyt4h9nfnj50.cloudfront.net/sku/a84dc69cee307fba4f559b1e825d8e9e" class="card-img-top" alt="Chinese">
+                                    <h5 class = "center"> Chinese </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class-"container">
+                        <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">Single toggle</button>
+                        <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">Single toggle</button>
+                    </div>
                 </div>
             </div>
         </div>
