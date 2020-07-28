@@ -1,12 +1,13 @@
 <html>
 <!-- show if business is open or closed -->
-<!-- decorate the left and the right-->
 <!-- more than one term -->
 <head>
 	<title>Tinder! But with Restaurants...</title>
 	<link rel="stylesheet" type="css/style.css?" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
@@ -24,26 +25,60 @@
             padding-left: 0;
             list-style: inside;
         }
-        #categories {
-            display: inline;
-        }
         .frame {
             height: 600px;
             background: transparent no-repeat center;
             background-size: cover;
         }
+        #categories {
+            display: inline;
+        }
+        #no {
+            height: 600px;
+            background: red;
+        }
+        #yes {
+            height; 600px;
+            background: green;
+        }
 	</style>
 </head>
 
 <body>
-    <form method="post" action="/test" name="Form">
-        <div class="swiper-container">
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <!-- Swanyee's quote was better -->
+                        Pick your poison...
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <!-- Replace this part -->
+                    <form method="post" action="/result">
+                        <label for="term">Enter a term:</label><br>
+                        <input type="text" name="term" placeholder="Like Mexican!"><br><br>
+                        <label for="loc">Enter a location:</label><br>
+                        <input type="text" name="loc" placeholder="Like NYC!"><br><br>
+                        <input type="submit" value="Submit"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form method="post" action="/result" name="Form">
+        <div class="swiper-container" id="results">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" style="width: 150px;">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
+                    <div class="card" style="width: 50rem;">
+                        <div id="no" class="card-img-top">
+                           <i class="far fa-times-circle fa-5x" style="font-size: 500px; color: white;"></i>
+                        </div>
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h1 class="card-text">No!</h1>
                         </div>
                     </div>
                 </div>
@@ -98,7 +133,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide" style="width: 150px;">YES</div>
+                <div class="swiper-slide" style="width: 150px;">
+                    <div class="card" style="width: 50rem;">
+                        <div id="yes" class="card-img-top">
+                           <i class="far fa-check-circle fa-5x" style="font-size: 500px; color: white;"></i>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-text">Yes!</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
         </div>

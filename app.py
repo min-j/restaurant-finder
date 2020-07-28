@@ -8,21 +8,19 @@ app = Flask(__name__)
 load_dotenv()
 API_KEY = os.getenv("GOOGLE_KEY")
 
+
 # -- Routes section --
 
-@app.route('/')
 @app.route('/index')
 def index():
     return render_template("index.html")
 
-@app.route('/results')
-def result():
-    return render_template('results.html')
 
-@app.route('/test', methods= ["GET", "POST"])
-def test():
+@app.route('/', methods=["GET", "POST"])
+@app.route('/result', methods=["GET", "POST"])
+def result():
     if request.method == "GET":
-        return render_template("test.html")
+        return render_template("result.html")
     else:
         t = request.form["term"]
         loc = request.form["loc"]
@@ -45,4 +43,4 @@ def test():
             'KEY': API_KEY
         }
         print(params['categories'])
-        return render_template("test.html", **params)
+        return render_template("result.html", **params)
