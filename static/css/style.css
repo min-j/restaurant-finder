@@ -1,5 +1,5 @@
 .s1 {
-  background-image: url('First Page.png');
+  background-image: url('fback.jpg');
   background-size: cover;
 }
 .center {
@@ -14,18 +14,16 @@ body{
 .card {
     margin: 0 auto;
 }
-
-.term {
-    border-radius: 60%;
+#term {
+    border-radius: 50%;
     object-fit: cover;
-    height: 100%;
-    left: 0px;
-    top: 0px;
-    padding: 10px;
-    width: 100%;
     display: block;
     margin: 0 auto;
-    max-height: 50%;
-    max-width: 50%;
+    max-height: 70%;
+    max-width: 70%;
+}
+form .btn-primary {
+    color: skyblue;
     background-color: white;
+    /* border-color: skyblue; */
 }

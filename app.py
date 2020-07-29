@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import model as m
 import os
 from datetime import datetime
@@ -8,10 +8,11 @@ from dotenv import load_dotenv
 app = Flask(__name__)
 load_dotenv()
 API_KEY = os.getenv("GOOGLE_KEY")
+resIDs = []
+link = "link"
 
 
 # -- Routes section --
-
 @app.route('/index')
 def index():
     return render_template("index.html", time=datetime.now())
@@ -21,9 +22,12 @@ def index():
 @app.route('/result', methods=["GET", "POST"])
 def result():
     # do we want to geocode?
+    global link
     if request.method == "GET":
         find = m.search(m.getRandom(), 'NYC')
         res = m.getDetails(find['businesses'][0]['id'])
+        # print(res)
+        link = res['url']
         try:
             price = "(" + res["price"] + ")"
         except (KeyError, TypeError):
@@ -41,20 +45,26 @@ def result():
         }
         return render_template('result.html', time=datetime.now(), **params)
     else:
-        # when the user chooses more than choice throw it into a list
-        # and then pop it for viewing
         if request.form['formType'] == "initial":
+            # categories are now set up
+            # print(request.form)
             t = request.form["term"]
             loc = request.form["loc"]
-            find = m.search(t, loc)  # Look for more than one business and adapt
-            res = m.getDetails(find['businesses'][0]['id'])
-            # print(res)
+            find = m.search(t, loc, 5)
+            for i in find['businesses']:
+                resIDs.append(i['id'])
+            res = m.getDetails(resIDs.pop())
+            print(resIDs)
         elif request.form['formType'] == "no":
-            find = m.search(m.getRandom(), 'NYC')
-            res = m.getDetails(find['businesses'][0]['id'])
+            print(resIDs)
+            if len(resIDs) != 0:
+                res = m.getDetails(resIDs.pop())
+            else:
+                find = m.search(m.getRandom(), 'NYC')
+                res = m.getDetails(find['businesses'][0]['id'])
         elif request.form['formType'] == 'yes':
-            # provide the user with information about the restaruant
-            return "SHOW MORE DETAILS"
+            return redirect(link)
+        link = res['url']
         try:
             price = "(" + res["price"] + ")"
         except (KeyError):

@@ -1,9 +1,9 @@
 <html>
-<!-- show if business is open or closed -->
-<!-- more than one term -->
+<!-- show that you can swipe -->
+<!-- give it a title -->
 <head>
 	<title>Tinder! But with Restaurants...</title>
-	<link rel="stylesheet" type="text/css" href="static/css/style.css?q={{ time }}" />
+	<link rel="stylesheet" type="text/css" href="static/css/style.css?q={{time}}" />
     <!-- Bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -35,7 +35,7 @@
             background-size: cover;
         }
         .hidden {
-            display: none;
+            opacity: 0;
         }
         #categories {
             display: inline;
@@ -56,15 +56,15 @@
         <div class="card">
             <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                         Hungry? We Got You.
                     </button>
                 </h2>
             </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
-                    <!-- Replace this part -->
-                    <form method="post" action="/result">
+                    <!-- Testing -->
+                    <!-- <form method="post" action="/result">
                         <label for="term">Enter a term:</label><br>
                         <input type="text" name="term" placeholder="Like Mexican!"><br><br>
                         <label for="loc">Enter a location:</label><br>
@@ -78,63 +78,47 @@
                         </label><br>
                         <input type="hidden" name="formType" value="initial">
                         <input type="submit" value="Submit"/>
+                    </form> -->
+                    <form method="post" action="/result">
+                        <input type="hidden" name="formType" value="initial">
+                        <div class = "container">
+                            <div class = "s1">
+                                <label for="loc">Enter a Location</label><br>
+                                <input type="text" name="loc"><br>
+                            </div>
+                        </div><br>
+                        <div class="container">
+                            <p>Explore These Near You</p>
+                            <div class="row">
+                                <div class="col">
+                                    <input class="hidden" type="checkbox" id="term1" name="term1" value="Mexican">
+                                    <label for="term1">
+                                        <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link" src="https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f32" alt="Chinese">
+                                        <h5 class = "center"> Term 1 </h5>
+                                    </label><br>
+                                </div>
+                                <div class="col">
+                                    <input class="hidden" type="checkbox" id="term2" name="term2" value="Pizza">
+                                    <label for="term2">
+                                        <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link" src="https://duyt4h9nfnj50.cloudfront.net/sku/0bc9ca19a02e3bd03f2395c8cf8a3e0c" alt="Chinese">
+                                        <h5 class = "center"> Term 2 </h5>
+                                    </label><br>
+                                </div>
+                                <div class="col">
+                                    <input class="hidden" type="checkbox" id="term3" name="term3" value="Chinese">
+                                    <label for="term3">
+                                        <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link" src="https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f32" alt="Chinese">
+                                        <h5 class = "center"> Term 3 </h5>
+                                    </label><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <label for="term">OR</label><br>
+                            <input type="text" name="term" placeholder="Enter Your Own"><br>
+                            <input type="submit" value="Submit" alt="This">
+                        </div>
                     </form>
-                    <!-- <div class = "s1">
-                        <form class = "center" method="post" action="/index">
-                            <label for="loc">Location</label><br>
-                            <input type="text" name="loc"><br>
-                            <input type="submit" value="Submit">
-                        </form>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="container">
-                                    <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link fb" src="https://duyt4h9nfnj50.cloudfront.net/sku/f6e04e64903c3207e68c649e24cc2f32" class="card-img-top" alt="Chinese">
-                                    <h5 class = "center"> Chinese </h5>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="container">
-                                    <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link fb" src="https://duyt4h9nfnj50.cloudfront.net/sku/0bc9ca19a02e3bd03f2395c8cf8a3e0c" class="card-img-top" alt="Chinese">
-                                    <h5 class = "center"> Chinese </h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="container">
-                                    <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link fb" src="https://duyt4h9nfnj50.cloudfront.net/sku/971d80f9ccce0c8eab98014650ee97eb" class="card-img-top" alt="Chinese">
-                                    <h5 class = "center"> Chinese </h5>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="container">
-                                    <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link fb" src="https://duyt4h9nfnj50.cloudfront.net/sku/a5aa9bbba0172134449b4ad48611d92b" class="card-img-top" alt="Chinese">
-                                    <h5 class = "center"> Chinese </h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="container">
-                                    <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link fb" src="https://duyt4h9nfnj50.cloudfront.net/sku/a84dc69cee307fba4f559b1e825d8e9e" class="card-img-top" alt="Chinese">
-                                    <h5 class = "center"> Chinese </h5>
-                                </div>
-                            </div>
-                            <div class="col">
-                            <div class="col">
-                                <div class="container">
-                                    <img id="term" type="button" data-toggle="button" aria-pressed="false" class="btn btn-primary stretched-link fb" src="https://duyt4h9nfnj50.cloudfront.net/sku/a84dc69cee307fba4f559b1e825d8e9e" class="card-img-top" alt="Chinese">
-                                    <h5 class = "center"> Chinese </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class-"container">
-                        <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">Single toggle</button>
-                        <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">Single toggle</button>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -232,7 +216,7 @@
         threshold: 25,
     });
     <!-- slideChange is more rigid -->
-    mySwiper.on('slideNextTransitionStart', function () {
+    mySwiper.on('slideNextTransitionEnd', function () {
         console.log('Next');
         document.Yes.submit()
     });
