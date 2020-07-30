@@ -65,7 +65,7 @@ def index():
             except (KeyError):
                 pass
             # print(request.form)
-            # print(termList)
+            print(termList)
             loc = request.form["loc"]
             for i in termList:
                 find = m.search(i, loc, 5)
@@ -100,5 +100,4 @@ def index():
             'photos': photos,
             'KEY': API_KEY
         }
-        print(params['name'])
         return render_template("index.html", time=datetime.now(), **params)

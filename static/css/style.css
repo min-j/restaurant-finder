@@ -2,10 +2,6 @@ body {
 	text-align: center;
     background-image: url(static/images/food.png);
 }
-ul {
-    padding-left: 0;
-    list-style: inside;
-}
 .center {
   text-align: center;
 }
@@ -15,21 +11,10 @@ ul {
 .card {
     margin: 0 auto;
 }
-.frame {
-    height: 600px;
-    background: transparent no-repeat center;
-    background-size: cover;
-}
-.hidden {
-    opacity: 0;
-}
 form .btn-primary {
     color: skyblue;
     background-color: white;
     /* border-color: skyblue; */
-}
-#categories {
-    display: inline;
 }
 #term {
     border-radius: 50%;
@@ -38,12 +23,4 @@ form .btn-primary {
     margin: 0 auto;
     max-height: 70%;
     max-width: 70%;
-}
-#no {
-    height: 600px;
-    background: red;
-}
-#yes {
-    height: 600px;
-    background: green;
 }
