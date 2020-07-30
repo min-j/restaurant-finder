@@ -24,6 +24,7 @@ def index():
         photos.append(m.getPhoto(i))
     global link
     if request.method == "GET":
+        resIDs.clear()
         find = m.search(m.getRandom(), 'NYC')
         res = m.getDetails(find['businesses'][0]['id'])
         # print(res)
