@@ -16,7 +16,6 @@ link = ""
 @app.route('/', methods=["GET", "POST"])
 @app.route('/index', methods=["GET", "POST"])
 def index():
-    # do we want to geocode?
     terms = set()
     photos = []
     while len(terms) != 3:
@@ -101,4 +100,5 @@ def index():
             'photos': photos,
             'KEY': API_KEY
         }
+        print(params['name'])
         return render_template("index.html", time=datetime.now(), **params)
