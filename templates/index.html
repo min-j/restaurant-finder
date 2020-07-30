@@ -2,7 +2,7 @@
 <!-- show that you can swipe -->
 <!-- give it a title -->
 <head>
-	<title>Tinder! But with Restaurants...</title>
+	<title>Restaurant Tinder</title>
 	<link rel="stylesheet" type="text/css" href="static/css/style.css?q={{time}}" />
     <!-- Bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -85,7 +85,7 @@
                             <div class = "s1">
                                 <label for="loc">Enter a Location</label><br>
                                 <input type="text" name="loc"><br>
-                            </div>
+                            </div><br>
                             <div class="container">
                                 <label for="term">Enter a Type</label><br>
                                 <input type="text" name="term"><br>
@@ -175,6 +175,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{name}} {{price}}</h5>
                         <img src={{rating}} alt="rating">
+                        <p>Based on {{reviewCount}} Reviews</p>
                         <ul>
                             {% for item in categories %}
                             <li id="categories">&#183 {{item.title}}</li>

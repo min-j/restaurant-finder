@@ -20,7 +20,7 @@ def index():
     terms = set()
     photos = []
     while len(terms) != 3:
-        terms.add(m.getRandom())
+        terms.add(m.getPhotoTerm())
     for i in terms:
         photos.append(m.getPhoto(i))
     global link
@@ -40,6 +40,7 @@ def index():
             'img2': res['photos'][1],
             'img3': res['photos'][2],
             'rating': m.getRating(res['rating']),
+            'reviewCount': res['review_count'],
             'address': res['location']['display_address'][0] + ", " + res['location']['display_address'][1],
             'categories': res['categories'],
             'terms': list(terms),
@@ -49,21 +50,33 @@ def index():
         return render_template('index.html', time=datetime.now(), **params)
     else:
         if request.form['formType'] == "initial":
-            # added the categories, now to code em
-            # if request.form['term'] == '':
-            #     if request.form[]
-            print(request.form)
-            t = request.form["term"]
+            termList = []
+            if request.form['term'] != "":
+                termList.append(request.form['term'])
+            try:
+                termList.append(request.form["term1"])
+            except (KeyError):
+                pass
+            try:
+                termList.append(request.form["term2"])
+            except (KeyError):
+                pass
+            try:
+                termList.append(request.form["term3"])
+            except (KeyError):
+                pass
+            # print(request.form)
+            # print(termList)
             loc = request.form["loc"]
-            find = m.search(t, loc, 5)
-            for i in find['businesses']:
-                resIDs.append(i['id'])
+            for i in termList:
+                find = m.search(i, loc, 5)
+                for j in find['businesses']:
+                    resIDs.append(j['id'])
             res = m.getDetails(resIDs.pop(0))
-            # print(resIDs)
         elif request.form['formType'] == "no":
-            print(resIDs)
+            # print(resIDs)
             if resIDs:
-                res = m.getDetails(resIDs.pop())
+                res = m.getDetails(resIDs.pop(0))
             else:
                 find = m.search(m.getRandom(), 'NYC')
                 res = m.getDetails(find['businesses'][0]['id'])
@@ -81,6 +94,7 @@ def index():
             'img2': res['photos'][1],
             'img3': res['photos'][2],
             'rating': m.getRating(res['rating']),
+            'reviewCount': res['review_count'],
             'address': res['location']['display_address'][0] + ", " + res['location']['display_address'][1],
             'categories': res['categories'],
             'terms': list(terms),

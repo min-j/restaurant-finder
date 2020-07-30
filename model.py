@@ -68,5 +68,9 @@ def getRandom():
     return random.choice(terms)
 
 
+def getPhotoTerm():
+    return random.choice(list(photos.keys()))
+
+
 def getPhoto(t):
     return photos[t]
