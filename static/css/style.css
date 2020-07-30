@@ -1,6 +1,10 @@
-.s1 {
-  background-image: url('fback.jpg');
-  background-size: cover;
+body {
+	text-align: center;
+    background-image: url(static/images/food.png);
+}
+ul {
+    padding-left: 0;
+    list-style: inside;
 }
 .center {
   text-align: center;
@@ -8,11 +12,24 @@
 .size {
     min-height: 50%;
 }
-body{
-    background-color: white;
-}
 .card {
     margin: 0 auto;
+}
+.frame {
+    height: 600px;
+    background: transparent no-repeat center;
+    background-size: cover;
+}
+.hidden {
+    opacity: 0;
+}
+form .btn-primary {
+    color: skyblue;
+    background-color: white;
+    /* border-color: skyblue; */
+}
+#categories {
+    display: inline;
 }
 #term {
     border-radius: 50%;
@@ -22,8 +39,11 @@ body{
     max-height: 70%;
     max-width: 70%;
 }
-form .btn-primary {
-    color: skyblue;
-    background-color: white;
-    /* border-color: skyblue; */
+#no {
+    height: 600px;
+    background: red;
+}
+#yes {
+    height: 600px;
+    background: green;
 }
