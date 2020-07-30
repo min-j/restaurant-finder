@@ -1,4 +1,2 @@
-# restaurant-finder
-Set up the Yelp Fusion API. 
-Currently in the process of making it user friendly. 
-Visions: creating some sort of algorithm to learn the user's preferences
+# Satiate
+Satiate is a simple yet effective web application that uses a left/right system similar to Tinder to help users find their desired restaurant.
