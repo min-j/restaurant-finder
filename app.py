@@ -9,19 +9,20 @@ app = Flask(__name__)
 load_dotenv()
 API_KEY = os.getenv("GOOGLE_KEY")
 resIDs = []
-link = "link"
+link = ""
 
 
 # -- Routes section --
-@app.route('/index')
-def index():
-    return render_template("index.html", time=datetime.now())
-
-
 @app.route('/', methods=["GET", "POST"])
-@app.route('/result', methods=["GET", "POST"])
-def result():
+@app.route('/index', methods=["GET", "POST"])
+def index():
     # do we want to geocode?
+    terms = set()
+    photos = []
+    while len(terms) != 3:
+        terms.add(m.getRandom())
+    for i in terms:
+        photos.append(m.getPhoto(i))
     global link
     if request.method == "GET":
         find = m.search(m.getRandom(), 'NYC')
@@ -41,23 +42,27 @@ def result():
             'rating': m.getRating(res['rating']),
             'address': res['location']['display_address'][0] + ", " + res['location']['display_address'][1],
             'categories': res['categories'],
+            'terms': list(terms),
+            'photos': photos,
             'KEY': API_KEY
         }
-        return render_template('result.html', time=datetime.now(), **params)
+        return render_template('index.html', time=datetime.now(), **params)
     else:
         if request.form['formType'] == "initial":
-            # categories are now set up
-            # print(request.form)
+            # added the categories, now to code em
+            # if request.form['term'] == '':
+            #     if request.form[]
+            print(request.form)
             t = request.form["term"]
             loc = request.form["loc"]
             find = m.search(t, loc, 5)
             for i in find['businesses']:
                 resIDs.append(i['id'])
-            res = m.getDetails(resIDs.pop())
-            print(resIDs)
+            res = m.getDetails(resIDs.pop(0))
+            # print(resIDs)
         elif request.form['formType'] == "no":
             print(resIDs)
-            if len(resIDs) != 0:
+            if resIDs:
                 res = m.getDetails(resIDs.pop())
             else:
                 find = m.search(m.getRandom(), 'NYC')
@@ -78,6 +83,8 @@ def result():
             'rating': m.getRating(res['rating']),
             'address': res['location']['display_address'][0] + ", " + res['location']['display_address'][1],
             'categories': res['categories'],
+            'terms': list(terms),
+            'photos': photos,
             'KEY': API_KEY
         }
-        return render_template("result.html", time=datetime.now(), **params)
+        return render_template("index.html", time=datetime.now(), **params)

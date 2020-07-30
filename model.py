@@ -66,3 +66,7 @@ def getRating(num):
 
 def getRandom():
     return random.choice(terms)
+
+
+def getPhoto(t):
+    return photos[t]
