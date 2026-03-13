@@ -1,6 +1,12 @@
 # Satiate
-Satiate is a simple yet effective web application that uses a left/right system similar to Tinder to help users find their desired restaurant.
-Check out a build at https://tinder-restaurant.herokuapp.com/
 
-## Issues
-It seems as if the build on Heroku does not work properly. Running the web app in Flask seems to work best.
+Satiate is a web application that mimics the left/right swiping system that Tinder uses to help users find new restaurants in their area.
+
+## Tech Stack
+- **Frontend:** HTML / CSS / JS
+- **Backend:** Flask
+- **Database:** MongoDB
+
+## Features
+- Swipe left to reject and swipe right to accept and open their Yelp page
+- Filter based on desired cuisine or style
